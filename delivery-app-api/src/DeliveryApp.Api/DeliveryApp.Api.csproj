@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>DeliveryApp.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DeliveryApp.Application\Products\*.cs" LinkBase="Application\Products" />
+    <Compile Include="..\DeliveryApp.Domain\Products\*.cs" LinkBase="Domain\Products" />
+    <Compile Include="..\DeliveryApp.Infrastructure\Products\*.cs" LinkBase="Infrastructure\Products" />
+  </ItemGroup>
+
+</Project>
