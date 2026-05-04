@@ -2,8 +2,7 @@ namespace DeliveryApp.Domain.Products;
 
 public sealed record Product(
     int Id,
+    string Category,
     string Name,
     string Description,
-    decimal Price,
-    string ImageUrl,
-    IReadOnlyList<string> Ingredients);
+    string Image);

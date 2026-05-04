@@ -12,16 +12,16 @@ public static class ProductEndpoints
         {
             var result = catalog.List(new PaginationOptions(request.Page, request.PerPage));
             var response = new PaginatedProductsResponse(
-                result.Items.Select(product => new ProductListItemResponse(
-                    product.Id,
-                    product.Name,
-                    product.Description,
-                    product.Price,
-                    product.ImageUrl)).ToArray(),
                 result.Page,
                 result.PerPage,
                 result.TotalItems,
-                result.TotalPages);
+                result.TotalPages,
+                result.Items.Select(product => new ProductListItemResponse(
+                    product.Category,
+                    product.Name,
+                    product.Id,
+                    product.Description,
+                    product.Image)).ToArray());
 
             return Results.Ok(response);
         });
@@ -33,12 +33,11 @@ public static class ProductEndpoints
             return product is null
                 ? Results.NotFound()
                 : Results.Ok(new ProductDetailResponse(
-                    product.Id,
+                    product.Category,
                     product.Name,
+                    product.Id,
                     product.Description,
-                    product.Price,
-                    product.ImageUrl,
-                    product.Ingredients.Select(ingredient => new IngredientResponse(ingredient)).ToArray()));
+                    product.Image));
         });
 
         return app;

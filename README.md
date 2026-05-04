@@ -17,7 +17,7 @@ delivery-app-api/DeliveryApp.slnx
 Base URL:
 
 ```text
-http://localhost:5000
+http://localhost:3001
 ```
 
 Routes:

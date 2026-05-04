@@ -1,8 +1,8 @@
 namespace DeliveryApp.Api.Contracts.Responses;
 
 public sealed record ProductListItemResponse(
-    int Id,
+    string Category,
     string Name,
+    int Id,
     string Description,
-    decimal Price,
-    string ImageUrl);
+    string Image);

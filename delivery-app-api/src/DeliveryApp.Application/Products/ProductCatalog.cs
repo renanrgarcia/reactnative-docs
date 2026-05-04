@@ -13,10 +13,10 @@ public sealed class ProductCatalog(IProductRepository repository)
             .Take(perPage)
             .Select(product => new ProductSummary(
                 product.Id,
+                product.Category,
                 product.Name,
                 product.Description,
-                product.Price,
-                product.ImageUrl))
+                product.Image))
             .ToArray();
 
         return new PaginatedResult<ProductSummary>(items, page, perPage, products.Count, totalPages);
@@ -30,10 +30,9 @@ public sealed class ProductCatalog(IProductRepository repository)
             ? null
             : new ProductDetails(
                 product.Id,
+                product.Category,
                 product.Name,
                 product.Description,
-                product.Price,
-                product.ImageUrl,
-                product.Ingredients);
+                product.Image);
     }
 }
